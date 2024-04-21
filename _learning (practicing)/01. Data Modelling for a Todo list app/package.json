@@ -1,0 +1,24 @@
+{
+  "name": "todo-data-modelling",
+  "version": "0.0.1",
+  "description": "Data Modelling for a todo list app using Node.js ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "mern",
+    "todo",
+    "javascript",
+    "backend",
+    "backend"
+  ],
+  "author": "moayaan.eth",
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^8.3.1"
+  }
+}
