@@ -10,10 +10,10 @@ cloud.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-async function uploadFileToServer(localFilePath) {
+const uploadFileToServer = async (localFilePath) => {
   try {
     if (!localFilePath) return null;
-
+    console.log('localFilePath: ', localFilePath);
     const file = await cloud.uploader.upload(localFilePath, {
       resource_type: 'auto',
     });
@@ -26,6 +26,6 @@ async function uploadFileToServer(localFilePath) {
     fs.unlinkSync(localFilePath);
     return null;
   }
-}
+};
 
 export { uploadFileToServer };

@@ -27,16 +27,22 @@ export const registerUser = higherOrderFunction(async (req, res) => {
   if (userExists) {
     throw new APIError(409, 'user already exists', [], '');
   }
-
   const avatarLocalPath = req.files?.avatar[0]?.path;
   const coverImageLocalPath = req.files?.coverImage[0]?.path;
+
   if (!avatarLocalPath) {
     throw new APIError(400, 'avatar is required', [], '');
+  }
+  if (!coverImageLocalPath) {
+    throw new APIError(400, 'coverImage is required', [], '');
   }
   const avatar = await uploadFileToServer(avatarLocalPath);
   const coverImage = await uploadFileToServer(coverImageLocalPath);
   if (!avatar) {
     throw new APIError(400, 'avatar upload failed', [], '');
+  }
+  if (!coverImage) {
+    throw new APIError(400, 'coverImage upload failed', [], '');
   }
 
   const user = await User.create({
